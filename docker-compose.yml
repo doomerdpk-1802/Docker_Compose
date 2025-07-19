@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+    mongo:
+      image: mongo
+      container_name: MongoDB
+      ports:
+        - 27017:27017
+      volumes:
+        - data_db:/data/db
+    backend:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      ports:
+        - 3000:3000
+      environment:
+        - DATABASE_URL=mongodb://MongoDB:27017/my_db
+      depends_on:
+        - mongo
+
+volumes:
+      data_db:
