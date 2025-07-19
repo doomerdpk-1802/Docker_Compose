@@ -19,3 +19,9 @@
     mongodb://mongoDatabase:27017/my_db -d -p 3000:3000 image_name
   - Run command "docker ps" to see the status of both the conatiners.
   - Run command "docker logs container_id" to debug any errors.
+
+# Installation using docker-compose:
+
+  - Install Docker.
+  - Clone the repository using command "git clone https://github.com/doomerdpk-1802/Docker_Compose.git"
+  - Run Command "docker-compose up" to start both the containers.
