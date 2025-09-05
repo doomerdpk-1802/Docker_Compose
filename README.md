@@ -1,27 +1,55 @@
-# Manual Installation:
+# Docker_Compose
 
-- Install NodeJS and Mongo DB.
-- Clone the repository using command "git clone https://github.com/doomerdpk-1802/Docker_Compose.git"
-- Copy environment variables file using command "cp .env.example .env" and Replace the DATABASE_URL by an actual URL.
-- Run "npm install" to install all the dependencies.
-- Run "npm run start" to start the application.
+This repository demonstrates how to use Docker Compose to containerize and orchestrate a basic Node.js application with a database. It serves as a practical example for setting up a multi-container Docker environment for development purposes.
 
+## Features
 
-# Installation using Docker:
+- **Node.js Backend**: Core application logic written in JavaScript.
+- **Database Integration**: Connects to an external database (see `db.js` for connection logic).
+- **Multi-Container Setup**: Utilizes `docker-compose.yml` to run the backend and database as separate services.
+- **Simple Configuration**: Easy to start and stop the entire stack with one command.
+- **Sample Dockerfile**: Custom Node.js Docker image setup.
 
-  - Install Docker.
-  - Clone the repository using command "git clone https://github.com/doomerdpk-1802/Docker_Compose.git"
-  - Build the backend image using the command "docker build -t image_name ."
-  - create a network using comamnd "docker network create test_network"
-  - start mongdb locally using the command "docker --name mongoDatabase --network test_network -d -p    
-    27017:27017 mongo"
-  - start the backend container using the command "docker --network test_network -e 
-    mongodb://mongoDatabase:27017/my_db -d -p 3000:3000 image_name
-  - Run command "docker ps" to see the status of both the conatiners.
-  - Run command "docker logs container_id" to debug any errors.
+## Getting Started
 
-# Installation using docker-compose:
+### Prerequisites
 
-  - Install Docker.
-  - Clone the repository using command "git clone https://github.com/doomerdpk-1802/Docker_Compose.git"
-  - Run Command "docker-compose up" to start both the containers.
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/)
+- Optional: Node.js (for local development)
+
+### Installation
+
+Please refer to [Installation.md](./Installation.md) for detailed setup instructions.
+
+### Quick Start
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/doomerdpk-1802/Docker_Compose.git
+    cd Docker_Compose
+    ```
+
+2. Start the services using Docker Compose:
+
+    ```bash
+    docker-compose up
+    ```
+
+3. Access your application as instructed in the logs or configuration.
+
+4. To stop and remove the containers:
+
+    ```bash
+    docker-compose down
+    ```
+
+## Project Structure
+
+- `index.js`: Main application entry point.
+- `db.js`: Database connection logic.
+- `Dockerfile`: Instructions to build the Node.js app image.
+- `docker-compose.yml`: Multi-container orchestration file.
+- `.dockerignore`, `.gitignore`: Ignore patterns for Docker and Git.
+- `package.json`, `package-lock.json`: Node.js dependencies.
